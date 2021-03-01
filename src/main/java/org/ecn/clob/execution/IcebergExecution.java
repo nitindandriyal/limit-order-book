@@ -1,5 +1,6 @@
 package org.ecn.clob.execution;
 
+import org.ecn.clob.TradeBook;
 import org.ecn.clob.TradeListener;
 import org.ecn.clob.model.Order;
 import org.ecn.clob.model.Trade;
@@ -13,8 +14,9 @@ public class IcebergExecution implements TradeListener, Execution {
     private final Map<String, Order> orderMap = new HashMap<>();
     private final LimitOrderBook limitOrderBook;
 
-    public IcebergExecution(LimitOrderBook limitOrderBook) {
+    public IcebergExecution(LimitOrderBook limitOrderBook, TradeBook tradeBook) {
         this.limitOrderBook = limitOrderBook;
+        tradeBook.subscribe(this);
     }
 
     public void submit(Order order, int totalVolume, int visibleVolume) {

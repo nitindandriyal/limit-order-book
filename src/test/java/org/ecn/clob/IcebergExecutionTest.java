@@ -23,8 +23,8 @@ public class IcebergExecutionTest {
     public void before() {
         tradeBook = new TradeBook();
         limitOrderBook = new LimitOrderBook(tradeBook);
-        aggressiveExecution = new AggressiveExecution();
-        icebergExecution = new IcebergExecution(limitOrderBook);
+        aggressiveExecution = new AggressiveExecution(limitOrderBook);
+        icebergExecution = new IcebergExecution(limitOrderBook, tradeBook);
         tradeBook.subscribe(icebergExecution);
     }
 

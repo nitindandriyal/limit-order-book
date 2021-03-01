@@ -20,7 +20,7 @@ public class LimitOrderBookTest {
     @Before
     public void before() {
         tradeBook = new TradeBook();
-        aggressiveExecution = new AggressiveExecution();
+        aggressiveExecution = new AggressiveExecution(limitOrderBook);
         limitOrderBook = new LimitOrderBook(tradeBook);
     }
 

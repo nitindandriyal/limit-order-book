@@ -12,9 +12,9 @@ public class Main {
         TradeBook tradeBook = new TradeBook();
         LimitOrderBook limitOrderBook = new LimitOrderBook(tradeBook);
         OrderParser orderParser = new OrderParser();
-        AggressiveExecution aggressiveExecution = new AggressiveExecution();
-        IcebergExecution icebergExecution = new IcebergExecution(limitOrderBook);
-        SmartOrderRouter smartOrderRouter = new SmartOrderRouter(limitOrderBook, tradeBook, orderParser, aggressiveExecution, icebergExecution);
+        AggressiveExecution aggressiveExecution = new AggressiveExecution(limitOrderBook);
+        IcebergExecution icebergExecution = new IcebergExecution(limitOrderBook, tradeBook);
+        SmartOrderRouter smartOrderRouter = new SmartOrderRouter(orderParser, aggressiveExecution, icebergExecution);
         Scanner reader = new Scanner(System.in);
         while (reader.hasNext()) {
             smartOrderRouter.handle(reader.nextLine());
