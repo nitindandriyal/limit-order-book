@@ -15,7 +15,7 @@ public class AggressiveExecution implements Execution {
     }
 
     @Override
-    public int nextSlice(String orderId, int remainingQuantity) {
+    public int getSlice(String orderId, int remainingQuantity) {
         return remainingQuantity;
     }
 }

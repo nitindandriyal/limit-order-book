@@ -53,7 +53,7 @@ public class IcebergExecution implements TradeListener, Execution {
     }
 
     @Override
-    public int nextSlice(String orderId, int remainingQuantity) {
+    public int getSlice(String orderId, int remainingQuantity) {
         int totalVolume = totalVolumeMap.get(orderId);
         if (totalVolume > 0) {
             Order order = orderMap.get(orderId);
