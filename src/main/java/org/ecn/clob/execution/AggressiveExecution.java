@@ -10,8 +10,8 @@ public class AggressiveExecution implements Execution {
         this.limitOrderBook = limitOrderBook;
     }
 
-    public void submit(Order order){
-
+    public void submit(Order order) {
+        limitOrderBook.execute(order, this);
     }
 
     @Override
